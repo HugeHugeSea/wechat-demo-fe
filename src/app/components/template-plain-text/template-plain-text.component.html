@@ -1,0 +1,57 @@
+<div id='template-plain-text-container' *ngIf='isViewMode'>
+    <div class="template-plain-text-feedback-left" *ngIf='payload.feedbackMsg && isHistoryView'>
+        <div class="feedback-icon-left">
+            <icon-svg [iconId]='"thumb_up_green"' *ngIf='isLike' class='left-icon' [settledWidth]='"18px"' [settledHeight]='"18px"'></icon-svg>
+            <icon-svg [iconId]='"thumb_down_green"' *ngIf='isUnlike' class='left-icon' [settledWidth]='"18px"' [settledHeight]='"18px"'></icon-svg>
+        </div>
+    </div>
+    <div class='template-plain-text-content'>
+
+      <div
+           [ngClass]="{'template-plain-text':!isHistoryView,'background-light-green':isHistoryView}">
+        {{payload}}
+      </div>
+<!--        &lt;!&ndash; view mode of custom template &ndash;&gt;-->
+<!--        <div *ngIf='payload.tmplType==="custom-template" && payload.description'-->
+<!--             [ngClass]="{'template-plain-text':!isHistoryView,'background-light-green':isHistoryView}">-->
+<!--            {{payload.description}}-->
+<!--        </div>-->
+<!--        &lt;!&ndash; view mode of feedback template message part&ndash;&gt;-->
+<!--        <div *ngIf='payload.tmplType==="feedback-template"'-->
+<!--             [ngClass]="{'template-plain-text':!isHistoryView,'background-light-green':isHistoryView}">-->
+<!--            {{payload.content.msg}}-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; view mode of plain text template &ndash;&gt;-->
+<!--        <div *ngIf='payload.tmplType!=="custom-template" && payload.tmplType!=="feedback-template" && payload.tmplType!=="quick-replies"'-->
+<!--             [ngClass]="{'template-plain-text':!isHistoryView,'background-light-green':isHistoryView}">-->
+<!--            {{payload.content}}-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; view mode of facebook quick reply template &ndash;&gt;-->
+<!--        <div *ngIf='payload.tmplType==="quick-replies"'-->
+<!--             [ngClass]="{'template-plain-text':!isHistoryView,'background-light-green':isHistoryView}">-->
+<!--            {{payload.msg}}-->
+<!--        </div>-->
+    </div>
+    <div class="template-plain-text-feedback" *ngIf='payload.feedbackMsg && !isHistoryView'>
+        <div class="feedback-icon">
+            <icon-svg [iconId]='"thumb_up_grey"' class='right-icon' [settledWidth]='"18px"' [settledHeight]='"18px"'></icon-svg>
+            <icon-svg [iconId]='"thumb_down_grey"' class='right-icon' [settledWidth]='"18px"' [settledHeight]='"18px"'></icon-svg>
+        </div>
+    </div>
+</div>
+
+<!-- edit mode of plain text template and custom template and feedback template-->
+<div *ngIf='!isViewMode'>
+    <textarea
+            matInput class='editable-text-bubble-message'
+            [ngModel]='payload && payload.tmplType==="quick-replies"? payload.msg : (payload && payload.content && payload.tmplType==="feedback-template"? payload.content.msg : payload.content)'
+            (ngModelChange)='updateText($event)'
+            [ngModelOptions]='{standalone: true}'
+            placeholder='{{subKey|uppercase}}'
+            cdkTextareaAutosize
+            #autosize='cdkTextareaAutosize'
+            cdkAutosizeMinRows='10'>
+    </textarea>
+</div>

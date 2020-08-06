@@ -1,0 +1,18 @@
+<div class="stratos">
+    <div class="filter-list-container">
+        <ul class="list list--input__bubble-horizontal">
+            <li *ngFor="let item of inputData" class="list__item form-item-vspacing">
+                <stratos-ng-filter
+                        (change)="onChange($event)"
+                        [(ngModel)]="item.checked"
+                        [checked]="item.checked"
+                        [disabled]="false"
+                        [id]="'filter_item_'+item.id"
+                        [label]="item.label"
+                        [name]="'filter_item_'+item.id" [required]="true"
+                        [value]="item.value">
+                </stratos-ng-filter>
+            </li>
+        </ul>
+    </div>
+</div>

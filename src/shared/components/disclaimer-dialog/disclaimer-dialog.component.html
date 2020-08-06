@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Disclaimer</h2>
+<mat-dialog-content>
+  <h3>{{data.disclaimer.title}}</h3>
+  <p>{{data.disclaimer.content}}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="col col-12 col-md-6 col-sm-6">
+    <button
+      class="w-100"
+      (click)="onAgree()"
+      [color]="'primary-default'"
+      mat-button>
+      Agree
+    </button>
+  </div>
+  <div class="col col-12 col-md-6 col-sm-6">
+    <button
+      class="w-100"
+      [color]="'secondary-default'"
+      mat-button
+      mat-dialog-close
+    >
+      Disagree
+    </button>
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,157 @@
+@import '../../../../node_modules/@angular/material/theming';
+
+@include mat_core();
+
+/*--------------------------------------------------------*\
+  Material Design custom palette
+\*--------------------------------------------------------*/
+
+$cathay-jade-palette: (
+  50 : #e0edec,
+  100 : #b3d1d1,
+  200 : #80b2b2,
+  300 : #4d9393,
+  400 : #267c7b,
+  500 : #006564,
+  600 : #005d5c,
+  700 : #005352,
+  800 : #004948,
+  900 : #003736,
+  A100 : #6efffb,
+  A200 : #3bfffa,
+  A400 : #08fff9,
+  A700 : #00eee8,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$cathay-grey-palette: (
+  50 : #f0f0f0,
+  100 : #d9d9d9,
+  200 : #bfbfbf,
+  300 : #a5a5a5,
+  400 : #929292,
+  500 : #7f7f7f,
+  600 : #777777,
+  700 : #6c6c6c,
+  800 : #626262,
+  900 : #4f4f4f,
+  A100 : #f8bfbf,
+  A200 : #f39191,
+  A400 : #ff5252,
+  A700 : #ff3838,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+
+$sand-palette: (
+  50 : #fbfaf7,
+  100 : #f5f2eb,
+  200 : #eee9de,
+  300 : #e7e0d0,
+  400 : #e1dac6,
+  500 : #dcd3bc,
+  600 : #d8ceb6,
+  700 : #d3c8ad,
+  800 : #cec2a5,
+  900 : #c5b797,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #fffefc,
+  A700 : #fff7e3,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$cathay-saffron-palette: (
+  50 : #f8e5e6,
+  100 : #edbec0,
+  200 : #e19397,
+  300 : #d4676d,
+  400 : #cb474d,
+  500 : #c2262e,
+  600 : #bc2229,
+  700 : #b41c23,
+  800 : #ac171d,
+  900 : #9f0d12,
+  A100 : #ffcecf,
+  A200 : #ff9b9d,
+  A400 : #ff686b,
+  A700 : #ff4e52,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+/*--------------------------------------------------------*\
+  Material Design custom theme
+\*--------------------------------------------------------*/
+// define 3 theme color
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$cathay-theme-primary: mat-palette($cathay-jade-palette); //006564
+$cathay-theme-accent: mat-palette($cathay-grey-palette); //#dcd3bc
+$cathay-theme-warn: mat-palette($cathay-saffron-palette); //#c2262e
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$cathay-theme: mat-light-theme(
+    $cathay-theme-primary,
+    $cathay-theme-accent,
+    $cathay-theme-warn
+);
+
+@include angular-material-theme($cathay-theme);

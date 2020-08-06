@@ -1,0 +1,705 @@
+@import '../variables/fonts';
+@import '../variables/colors';
+@import '../mixins/mixin';
+
+html, body {
+  font-family: $font-cathay-regular, Arial;
+  box-sizing: content-box;
+  background-color: $color-secondary-cx-light-grey;
+  height: 100%;
+}
+
+body {
+  font-size: 87.5%; // Equivalent to 14px.
+  line-height: 1.25;
+  @media (min-width: 43.75em) {
+    line-height: 1.375;
+  }
+}
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+h1 {
+  font-size: 2em;
+  //line-height: em(41px);
+  line-height: 41px;
+  @media (min-width: 43.75em) {
+    font-size: 2.5em;
+    line-height: 1.125;
+  }
+  @media (min-width: 56.25em) {
+    font-size: 3em;
+    line-height: 1.05;
+  }
+}
+
+h2 {
+  color: $color-primary-cx-green;
+  font-family: $font-cathay-light, Arial;
+  font-size: 1.625em;
+  line-height: 1.15384615;
+  @media (min-width: 43.75em) {
+    font-size: 2em;
+    line-height: 1.25;
+  }
+  @media (min-width: 56.25em) {
+    font-size: 2.25em;
+    line-height: 1.25;
+  }
+}
+
+h3 {
+  font-size: 1.375em;
+  line-height: 1.13636364;
+  @media (min-width: 43.75em) {
+    font-size: 1.5em;
+    line-height: 1.25;
+  }
+  @media (min-width: 56.25em) {
+    font-size: 1.75em;
+    line-height: 1.25;
+  }
+}
+
+h4 {
+  font-size: 1.125em;
+  line-height: 1.11111111;
+  @media (min-width: 43.75em) {
+    line-height: 1.22222222;
+  }
+}
+
+blockquote {
+  font-size: 1.25em;
+  line-height: 1.25;
+  @media (min-width: 43.75em) {
+    font-size: 1.5em;
+    line-height: 1.45833333;
+  }
+}
+
+button {
+  margin: 0.357em 0.357em 0.357em 0;
+}
+
+.container.content {
+  height: calc(100% - 114px);
+}
+
+.master-logo {
+  //background: url("../../assets/logo/apple-icon.png");
+}
+
+.display-container {
+  width: 100%;
+  height: 100%;
+}
+
+.display-container.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-uppercase {
+  text-transform: uppercase;
+}
+
+/*--------------------------------------------------------*\
+  Common style for reuse.
+  Usage e.g.: @extend .[class-name]
+\*--------------------------------------------------------*/
+.vertical-align {
+  align-items: center;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/*--------------------------------------------------------*\
+  Flight Information
+\*--------------------------------------------------------*/
+
+.flight-date {
+  background: $color-primary-white;
+  background: linear-gradient(to bottom right, $color-primary-white 0%, #EEE 100%);
+  border: 1px solid $color-secondary-cx-gold;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px -2px $color-secondary-cx-gold;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  line-height: 0.5em;
+  min-width: 30px;
+  padding: 3px 3px;
+  overflow: hidden;
+  vertical-align: top;
+
+  .day,
+  .month,
+  .year {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .month {
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+  .year {
+    font-size: 0.5em;
+  }
+}
+
+.flight-sector {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  div {
+    flex-wrap: wrap;
+  }
+
+  .arrival {
+    flex-direction: column;
+  }
+
+  .origin {
+    flex-direction: column;
+  }
+}
+
+.flight-schedule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+/*--------------------------------------------------------*\
+  Icon Fonts
+\*--------------------------------------------------------*/
+/* Glyph Unicode: https://github.com/google/material-design-icons/blob/master/iconfont/codepoints */
+.material-icons {
+  font-family: $font-material-icons;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $font-material-icons-size; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: $font-cathay-regular;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*--------------------------------------------------------*\
+  Icon Fonts CX/KA flights
+\*--------------------------------------------------------*/
+/* Default / Ground Duty */
+.fly-to {
+  color: $color-secondary-cx-gold;
+  margin-top: 8px;
+  transform: rotate(90deg);
+}
+
+/* CX. Place after Default */
+.fly-to-cx {
+  color: $color-primary-cx-green;
+  margin-top: 8px;
+}
+
+/* KA. Place after Default */
+.fly-to-ka {
+  color: $color-ka-red;
+  margin-top: 8px;
+}
+
+/*--------------------------------------------------------*\
+  Bottom Sheet
+\*--------------------------------------------------------*/
+.bottom-sheet-header {
+  .mat-card-title {
+    @extend .vertical-align;
+  }
+
+  /* h2 title align to left */
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+/*--------------------------------------------------------*\
+  Mat Input
+\*--------------------------------------------------------*/
+/* Input and custom input style */
+.custom-filter {
+  width: 45%;
+  @media only screen and (max-width: 590px) {
+    width: 100%;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 590px) {
+    flex-direction: column;
+  }
+}
+
+/* Empty */
+.mat-form-field-flex {
+  border: 1px solid $color-secondary-cx-warm-grey;
+  line-height: $button-line-height;
+  padding: 0 16px 0 14px;
+
+  .mat-form-field-label-wrapper {
+    top: -18px;
+  }
+}
+
+/* :focus */
+.mat-focused {
+  text-transform: uppercase;
+
+  .mat-input-flex {
+    &.mat-form-field-flex {
+      border: 1px solid $color-primary-cx-green;
+    }
+  }
+
+  .mat-form-field-label {
+    color: $color-secondary-cx-dark-grey;
+  }
+
+  .mat-form-field-label-wrapper {
+    top: -7px;
+  }
+}
+
+/* Invalid */
+.mat-form-field-invalid {
+  text-transform: uppercase;
+
+  .mat-input-element {
+    width: calc(100% - 21px);
+  }
+
+  .mat-input-infix::after {
+    color: $color-primary-cx-red;
+    font-family: $font-material-icons;
+    content: '\e88e'; // Material icon unicode 'info'
+  }
+
+  .mat-form-field-label {
+    color: $color-primary-cx-red;
+  }
+
+  .mat-input-flex {
+    &.mat-form-field-flex {
+      border: 1px solid $color-primary-cx-red;
+    }
+  }
+}
+
+/* Pre-filled value */
+.mat-form-field-should-float {
+  text-transform: uppercase;
+
+  .mat-form-field-label-wrapper {
+    top: -7px;
+  }
+}
+
+/* Remove default underline */
+.mat-input-underline, .mat-form-field-underline {
+  display: none;
+}
+
+/*
+ * Read only.
+ * Usage:
+ * e.g. <mat-form-field class="readonly"></mat-form-field>
+ */
+.readonly {
+  .mat-form-field-flex {
+    background: $color-tertiary-cx-unselectable;
+  }
+}
+
+/*--------------------------------------------------------*\
+  Mat Raised Button (Primary)
+\*--------------------------------------------------------*/
+/*
+ * Primary button
+ * Usage:
+ * e.g. <button [color]="'primary-default'" mat-raised-button>
+ */
+.mat-primary-default {
+  background-image: linear-gradient(-180deg, $button-color-jade 0%, $button-color-dark-jade 100%);
+  border: 0 solid rgba(0, 0, 0, 0.20);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.20);
+  border-radius: $button-border-radius;
+  color: $color-primary-white;
+  height: $button-height;
+  min-width: $button-primary-min-width;
+
+  &.mat-raised-button {
+    min-width: $button-primary-min-width;
+  }
+
+  &:hover {
+    background-image: linear-gradient(-180deg, $button-color-dark-jade 0%, $button-color-jade 100%);
+    box-shadow: 0 -1px 0 0;
+  }
+}
+
+/*
+ * Primary button
+ * Usage:
+ * e.g. <button [color]="'primary-warn'" mat-raised-button>
+ */
+.mat-primary-warn {
+  background-image: linear-gradient(-180deg, $button-color-red 0%, $button-color-dark-red 100%);
+  border: 0 solid rgba(0, 0, 0, 0.20);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.20);
+  border-radius: $button-border-radius;
+  color: $color-primary-white;
+  height: $button-height;
+  min-width: $button-primary-min-width;
+
+  &.mat-raised-button {
+    min-width: $button-primary-min-width;
+  }
+
+  &:hover {
+    background-image: linear-gradient(-180deg, $button-color-dark-red 0%, $button-color-red 100%);
+    box-shadow: 0 -1px 0 0;
+  }
+}
+
+/*
+ * Primary button
+ * Usage:
+ * e.g. <button [color]="'primary-neutral'" mat-raised-button>
+ */
+.mat-primary-neutral {
+  background-image: linear-gradient(-180deg, $color-mpo-silver 0%, $color-secondary-cx-dark-grey 100%);
+  border: 0 solid rgba(0, 0, 0, 0.20);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.20);
+  border-radius: $button-border-radius;
+  color: $color-primary-white;
+  height: $button-height;
+  min-width: $button-primary-min-width;
+
+  &.mat-raised-button {
+    min-width: $button-primary-min-width;
+  }
+
+  &:hover {
+    background-image: linear-gradient(-180deg, $color-secondary-cx-dark-grey 0%, $color-mpo-silver 100%);
+    box-shadow: 0 -1px 0 0;
+  }
+}
+
+/*
+ * Primary button
+ * Disabled style needs to be placed after positive and warn
+ */
+.mat-raised-button[disabled], .mat-raised-button[disabled]:hover {
+  background-image: linear-gradient(-180deg, $button-color-disable-grey 0%, $button-color-disable-dark-grey 100%);
+  box-shadow: none;
+  color: $color-secondary-cx-dark-grey;
+}
+
+/*--------------------------------------------------------*\
+  Mat Button (Secondary)
+\*--------------------------------------------------------*/
+/*
+ * Secondary button
+ * Usage:
+ * e.g. <button [color]="'secondary-default'" mat-button>
+ */
+.mat-secondary-default {
+  border: 1px solid $button-color-dark-jade;
+  border-radius: $button-border-radius;
+  color: $button-color-dark-jade;
+  height: $button-height;
+  min-width: $button-secondary-min-width;
+
+  &.mat-raised-button {
+    min-width: $button-secondary-min-width;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .mat-button-focus-overlay {
+    background-color: transparent;
+  }
+}
+
+/*
+ * Secondary button
+ * Usage:
+ * e.g. <button [color]="'secondary-warn'" mat-button>
+ */
+.mat-secondary-warn {
+  border: 1px solid $button-color-dark-red;
+  border-radius: $button-border-radius;
+  color: $button-color-dark-red;
+  height: $button-height;
+  min-width: $button-secondary-min-width;
+
+  &.mat-raised-button {
+    min-width: $button-secondary-min-width;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .mat-button-focus-overlay {
+    background-color: transparent;
+  }
+}
+
+/*
+ * Secondary button
+ * Usage:
+ * e.g. <button [color]="'secondary-neutral'" mat-button>
+ */
+.mat-secondary-neutral {
+  border: 1px solid $color-secondary-cx-dark-grey;
+  border-radius: $button-border-radius;
+  color: $color-secondary-cx-dark-grey;
+  height: $button-height;
+  min-width: $button-secondary-min-width;
+
+  &.mat-raised-button {
+    min-width: $button-secondary-min-width;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .mat-button-focus-overlay {
+    background-color: transparent;
+  }
+}
+
+/*--------------------------------------------------------*\
+  Mat Dialog
+\*--------------------------------------------------------*/
+/* Button position to bottom right */
+.mat-dialog-actions {
+  flex-direction: row-reverse;
+  @media only screen and (max-width: 409px) {
+    flex-direction: column;
+    .mat-button {
+      margin-left: 0px;
+    }
+  }
+}
+
+/*--------------------------------------------------------*\
+  Mat Radio
+\*--------------------------------------------------------*/
+/* Usage:
+ * e.g. <mat-radio-button [color]="'radio-default'"...></mat-radio-button>
+ */
+/* Unselected */
+.mat-radio-default {
+
+  .mat-radio-outer-circle {
+    border: 1px solid $color-secondary-cx-warm-grey;
+    height: $radio-outer-circle-height;
+    width: $radio-outer-circle-height;
+  }
+
+  .mat-radio-inner-circle {
+    background: $color-secondary-cx-link;
+    height: $radio-outer-circle-height;
+    width: $radio-outer-circle-height;
+    transform: scale(0);
+  }
+}
+
+/* Selected */
+.mat-radio-checked {
+  .mat-radio-inner-circle {
+    transform: scale(.4) !important; // Override normal
+  }
+
+  .mat-radio-label-content {
+    font-family: $font-cathay-bold;
+  }
+}
+
+/*--------------------------------------------------------*\
+  Mat SnackBar
+\*--------------------------------------------------------*/
+.failure-message {
+  background: $color-primary-cx-red;
+}
+
+.success-message {
+  background: $color-primary-cx-green;
+}
+
+/*--------------------------------------------------------*\
+  Mat Stepper
+\*--------------------------------------------------------*/
+/* Stepper Button */
+.stepper-button {
+  left: 10px;
+
+  .mat-button {
+    padding: 0;
+  }
+
+  .mat-stepper-back, .mat-stepper-next {
+    border: none;
+    color: $color-secondary-cx-link;
+    height: 32px;
+    line-height: 17px;
+    text-align: left;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-position: under;
+    }
+
+    .mat-button-focus-overlay {
+      background-color: transparent;
+    }
+
+    .mat-icon {
+      font-size: 22px;
+    }
+  }
+
+  .mat-stepper-back {
+    .mat-icon {
+      padding-right: 30px;
+    }
+  }
+
+  .mat-stepper-next {
+    .mat-icon {
+      padding-left: 6px;
+    }
+  }
+}
+
+/* Stepper Form */
+.mat-stepper-horizontal {
+  border: 1px solid $color-secondary-cx-warm-grey;
+}
+
+/*--------------------------------------------------------*\
+  Mat Table
+\*--------------------------------------------------------*/
+.mat-action-row {
+  border-top-style: none;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.mat-cell {
+  overflow: inherit;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.8em;
+
+    .mat-icon {
+      font-size: 1.8em;
+    }
+  }
+}
+
+.mat-header-row {
+  @media only screen and (max-width: 768px) {
+    padding: 0 7px;
+  }
+}
+
+.mat-row {
+  vertical-align: middle;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 7px;
+  }
+
+  &:nth-child(odd) { // Alternate row highlight
+    background: $color-secondary-cx-light-grey;
+  }
+
+}
+
+.error-message {
+  color: $color-primary-cx-red;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden !important;
+}
+
+.overflow-y {
+  overflow-y: scroll;
+}
+
+.long-option {
+  .mat-option-text {
+    overflow: scroll;
+    text-overflow: unset;
+  }
+}
+
+.primary-default-color {
+  color: $color-primary-cx-green;
+}

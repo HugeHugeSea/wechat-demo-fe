@@ -1,0 +1,21 @@
+@import 'variables/variables';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '~@uxui/stratos-core/core';
+@import '~@uxui/stratos-web-loading/loading';
+@import '~@uxui/stratos-web-button/btn';
+@import '~@uxui/stratos-web-dialog/dialog';
+@import '~@uxui/stratos-web-datepicker/datepicker';
+@import "~@uxui/stratos-web-jquery/jquery-ui.min.css";
+@import "~@uxui/stratos-web-checkbox/checkbox";
+@import "~@uxui/stratos-web-message/message";
+@import '~@uxui/stratos-web-input-text/input-text';
+@import '~@uxui/stratos-web-filter/filter';
+@import '~@uxui/stratos-web-radio/radio';
+@import '~@uxui/stratos-web-dropdown-list/dropdown-list';
+@import '~@uxui/stratos-web-textarea/textarea';
+@import '~@uxui/stratos-web-accordion/accordion';
+@import 'fonts/fonts';
+@import 'themes/theme';
+@import 'typography/typography'; //must declare after theme
+@import 'bases/base';
+@import 'components/components';

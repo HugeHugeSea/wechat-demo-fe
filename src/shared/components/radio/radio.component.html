@@ -1,0 +1,18 @@
+<div class="stratos">
+    <div class="radio-container">
+        <ul class="list list--input__horizontal">
+            <li *ngFor="let item of inputData" class="list__item form-item-vspacing">
+                <stratos-ng-radio
+                        (change)="onChange($event)"
+                        [(ngModel)]="item.checked"
+                        [checked]="item.checked"
+                        [disabled]="false"
+                        [id]="'filter_item_'+item.id"
+                        [label]="item.label"
+                        [name]="'filter_item_'+item.id" [required]="true"
+                        [value]="item.value">
+                </stratos-ng-radio>
+            </li>
+        </ul>
+    </div>
+</div>

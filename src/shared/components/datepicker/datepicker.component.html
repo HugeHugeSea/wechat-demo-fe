@@ -1,0 +1,36 @@
+<div class="stratos" (clickOutside)="hideDatepicker($event)">
+    <div class="container">
+        <div class="row">
+            <stratos-ng-input-text class="col no-gutter-col mr-2" [id]="'datepickerFromId'" [value]="fromDateValue"
+                                   [autocomplete]="'off'" [name]="'datepickerFromName'" [required]="true" [label]="datepickerData.departingOnTitle"
+                                   (click)="onInputClick()">
+            </stratos-ng-input-text>
+            <span class="sr-only" aria-atomic="true" aria-live="polite" [attr.aria-label]="datepickerHoveredDates"></span>
+
+            <stratos-ng-input-text class="col no-gutter-col" [id]="'datepickerToId'" [value]="toDateValue"
+                                   [autocomplete]="'off'" [name]="'datepickerToName'" [required]="true" [label]="datepickerData.returningOnTitle"
+                                   (click)="onInputClick()">
+            </stratos-ng-input-text>
+            <span class="sr-only" aria-atomic="true" aria-live="polite" [attr.aria-label]="datepickerHoveredDates"></span>
+        </div>
+
+        <div class="row position-relative">
+            <stratos-ng-datepicker
+                    [fromDate]="fromDate" [toDate]="toDate" [minDate]="minDate" [maxDate]="maxDate" [firstDay]="1"
+                    [fromId]="'datepickerFromId'"
+                    [toId]="'datepickerToId'"
+                    [alwaysStartWithFromDate]="false"
+                    [oneWayTrip]="false"
+                    [datepickerShown]="showDatepicker"
+                    [showMessage]="showMessage"
+                    [feedbackData]="datepickerMessage"
+                    [ferryPortDateRestriction]=""
+                    [data]="datepickerData"
+                    (closed)="onClosed($event)"
+                    (datepickerOutputDates)="onOutputDatepickerDates($event)"
+                    (flexibleDatesValueChanged)="onFlexibleDatesValueChanged($event)"
+                    (hoveredDates)="onHoveredDates($event)">
+            </stratos-ng-datepicker>
+        </div>
+    </div>
+</div>

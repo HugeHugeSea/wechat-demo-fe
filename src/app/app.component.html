@@ -1,0 +1,67 @@
+
+<div id='session-detail-container'>
+  <div id='session-detail-left-panel'>
+    <div class='section-title'>Wechat conversation list</div>
+
+    <table mat-table [dataSource]="dataSource" class="table">
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns;">
+        <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+        <mat-cell *matCellDef="let element;">
+          <ng-container *ngIf="column!=displayedColumns[column]&&column!='Tags'&&column!='Flow rating'&&column!='Platform'">
+            <span [matTooltip]="element[column]">{{element[column]|shorten:[15,'...']}}</span>
+          </ng-container>
+          <ng-container *ngIf="column=='Open ID'">
+            <span [matTooltip]="element.openId" *ngIf="element.openId">{{element.openId|shorten:[15,'...']}}</span>
+          </ng-container>
+          <ng-container *ngIf="column=='User name'">
+            <span [matTooltip]="element.userName">{{element.userName|shorten:[15,'...']}}</span>
+          </ng-container>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row [ngClass]="{'highlighted': activeRow == row}" *matRowDef="let row;  columns: displayedColumns;" (click)='onRowClicked(row)' class="hover-row">
+
+      </mat-row>
+    </table>
+    <mat-paginator
+      #paginator
+      [length]="page.totalElements"
+      [pageSize]="page.size"
+      (page)="onPaginateChange($event.pageIndex)">
+    </mat-paginator>
+  </div>
+
+  <div id='session-detail-right-panel'>
+
+    <div class="right-panel-header">
+      <span class='date-box-start-day'>{{activeRow?.Date}} </span>
+      <span class='date-box-end-day'>{{activeRow?.Time}}</span>
+      <mat-icon  (click)="onClosePanel()">close</mat-icon>
+    </div>
+
+    <div  class="right-panel-content">
+
+      <div>
+        <div class='conversation-title'>Open Id</div>
+        <div><span>{{activeRow?.openId}}</span></div>
+      </div>
+
+      <div class='end-to-end-messages'>
+        <ul *ngFor='let dialog of dialogs' class='chat-list'>
+          <li class="chat-bubble {{dialog.sendType}}">
+            <span calss="template-plain-text" *ngIf="dialog.sendType && dialog.sendType === 'client' && dialog.message" [innerHTML]="dialog.message"></span>
+            <app-template-plain-text-component
+              *ngIf='dialog.message && dialog.sendType && dialog.sendType !== "client"'
+              [payload]='dialog.message'
+              [isViewMode]='true'
+              [isHistoryView]='true'>
+            </app-template-plain-text-component>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

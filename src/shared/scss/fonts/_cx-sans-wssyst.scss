@@ -1,0 +1,35 @@
+@import '../variables/paths';
+@import '../variables/fonts';
+
+@font-face {
+  font-family: $font-cathay-regular;
+  font-weight: normal;
+  font-style: normal;
+  src: url($default-font-sys-path + 'CathaySans_WSyst_Rg.eot');
+  src: url($default-font-sys-path + 'CathaySans_WSyst_Rg.eot?#iefix') format('embedded-opentype'),
+  url($default-font-sys-path + 'CathaySans_WSyst_Rg.woff2') format('woff2'),
+  url($default-font-sys-path + 'CathaySans_WSyst_Rg.woff') format('woff'),
+  url($default-font-path + 'CathaySans_Rg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font-cathay-bold;
+  font-weight: normal;
+  font-style: normal;
+  src: url($default-font-sys-path + 'CathaySans_WSyst_Bd.eot');
+  src: url($default-font-sys-path + 'CathaySans_WSyst_Bd.eot?#iefix') format('embedded-opentype'),
+  url($default-font-sys-path + 'CathaySans_WSyst_Bd.woff2') format('woff2'),
+  url($default-font-sys-path + 'CathaySans_WSyst_Bd.woff') format('woff'),
+  url($default-font-path + 'CathaySans_Bd.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font-material-icons;
+  font-style: normal;
+  font-weight: 400;
+  //src: url('../../../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  //src: url('../../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot?#iefix') format('embedded-opentype'),
+  //url('../../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2') format('woff2'),
+  //url('../../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff') format('woff'),
+  //url('../../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf') format('truetype');
+}
